@@ -13,33 +13,41 @@ struct HomeView: View {
     init(cartManager: CartManager) {
         _viewModel = StateObject(wrappedValue: HomeViewModel(cartManager: cartManager))
     }
-
+    
     var body: some View {
-        VStack {
+        ZStack {
+            Color.backgroundColor.ignoresSafeArea()
             switch viewModel.state {
             case .loading:
-                ProgressView()
+                LoadingHomeView()
             case .empty:
-                Text("Nada encontrado")
+                EmptyStateHomeView(action: reloadMoviesList)
             case .success(let movies):
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading) {
                         Text("Mais Vendidos")
-                            .font(.title)
+                            .foregroundColor(Color.secondaryColor)
+                            .font(.custom(AppFonts.regular, size: FontSizes.subtitle))
                             .fontWeight(.bold)
                         
                         Text("Maiores sucessos do WeMovie")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color.secondaryColor)
+                            .font(.custom(AppFonts.regular, size: FontSizes.smallText))
+                            .fontWeight(FontWeights.bold)
                         
                         ForEach(movies) { movie in
                             MovieCard(movie: movie, cartManager: viewModel.cartManager)
                         }
                     }
-                    .padding()
+                    .padding((24.0/360)*UIScreen.main.bounds.width)
                 }
             }
         }
         .navigationTitle("Home")
     }
+    
+    func reloadMoviesList() {
+        viewModel.fetchMovies()
+    }
+    
 }

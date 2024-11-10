@@ -22,6 +22,7 @@ class HomeViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     func fetchMovies() {
+        self.state = .loading
         let endpoint = "https://wefit-movies.vercel.app/api/movies" // Insira seu endpoint real aqui
         
         APIClient.shared.fetchData(endpoint: endpoint) { (result: Result<Products, Error>) in

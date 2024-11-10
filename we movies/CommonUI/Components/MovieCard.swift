@@ -1,9 +1,3 @@
-//
-//  MovieCard.swift
-//  we movies
-//
-//  Created by Rafael Teixeira Martins on 09/11/24.
-//
 import SwiftUI
 
 struct MovieCard: View {
@@ -11,44 +5,42 @@ struct MovieCard: View {
     @ObservedObject var cartManager: CartManager
 
     var body: some View {
-        HStack(spacing: 16) {
+        VStack(spacing: 16) {
             AsyncImage(url: URL(string: movie.image)) { image in
                 image.resizable()
-                    .scaledToFill()
-                    .frame(width: 80, height: 120)
-                    .cornerRadius(8)
+                    .scaledToFit()
+                    .frame(width: (147/360)*UIScreen.main.bounds.width, height: (188/800)*UIScreen.main.bounds.height)
+                    .cornerRadius(4)
             } placeholder: {
                 ProgressView()
             }
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text(movie.title)
-                    .font(.headline)
-                
-                Text("$\(movie.price, specifier: "%.2f")")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                Button(action: {
-                    if cartManager.isInCart(movie: movie) {
-                        cartManager.removeFromCart(movie: movie)
-                    } else {
-                        cartManager.addToCart(movie: movie)
-                    }
-                }) {
-                    Text(cartManager.isInCart(movie: movie) ? "Adicionado" : "Adicionar ao Carrinho")
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(cartManager.isInCart(movie: movie) ? Color.green : Color.blue)
-                        .cornerRadius(8)
+
+            Text(movie.title)
+                .font(.custom(AppFonts.regular, size: FontSizes.smallText))
+                .foregroundColor(Color.primaryColor)
+
+            Text("R$ \(movie.price, specifier: "%.2f")")
+                .font(.custom(AppFonts.regular, size: FontSizes.price))
+                .foregroundColor(Color.primaryColor)
+
+            Button(action: {
+                if cartManager.isInCart(movie: movie) {
+                    cartManager.removeAllOcurrencesFromCart(movie: movie)
+                } else {
+                    cartManager.addToCart(movie: movie)
                 }
+            }) {
+                Text(cartManager.isInCart(movie: movie) ? "Adicionado" : "Adicionar ao Carrinho")
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(cartManager.isInCart(movie: movie) ? Color.green : Color.accent)
+                    .cornerRadius(4)
             }
-            Spacer()
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
+        .padding(16)
+        .background(Color.secondaryColor)
+        .cornerRadius(4)
         .shadow(radius: 5)
     }
 }

@@ -14,4 +14,5 @@ extension Color {
     static let accentColor = Color("accentColor")          // Cor de destaque
     static let cardBackgroundColor = Color("cardBackground")   // Cor de fundo de um card
     static let circleGradientColor = Color("circleGradient")
+    static let lightGrayColor = Color("lightGray")
 }

@@ -1,32 +1,29 @@
 //
-//  OrderConfirmationView.swift
+//  EmptyStateHomeView.swift
 //  we movies
 //
-//  Created by Rafael Teixeira Martins on 09/11/24.
+//  Created by Rafael Teixeira Martins on 10/11/24.
 //
 
 import SwiftUI
 
-struct OrderConfirmationView: View {
-    @StateObject private var viewModel: OrderConfirmationViewModel
-    @Binding var selectedTab: Int
+struct EmptyStateHomeView: View {
+    
+    let action: () -> Void
     
     var body: some View {
         VStack {
-            Text(viewModel.getTimeOfPurchase())
-                .font(.custom(AppFonts.regular, size: FontSizes.smallText))
-                        .foregroundColor(Color.lightGray)
-            Text("Compra realizada com sucesso!")
+            Text("Parece que não há nada por aqui :(")
                 .font(.custom(AppFonts.regular, size: FontSizes.subtitle))
                 .fontWeight(.bold)
                 .foregroundColor(Color.primaryColor)
             
-            Image("finished_purchase")
+            Image("empty_state_home_image")
                 .resizable()
                 .scaledToFit()
                 .frame(width: UIScreen.main.bounds.width*178.63/360, height: UIScreen.main.bounds.height*343/800) // Ajuste o tamanho da imagem conforme necessário
             
-            CustomButton(title: "Voltar à Home", action: goBackToHome)
+            CustomButton(title: "Recarregar página", action: action)
         }
         .frame(width: UIScreen.main.bounds.width * 0.87,
                height: UIScreen.main.bounds.height * 0.73)
@@ -35,8 +32,5 @@ struct OrderConfirmationView: View {
         .shadow(radius: 10)
     }
     
-    // Navegar de volta à Home
-    func goBackToHome() {
-        selectedTab = 1
-    }
 }
+
