@@ -8,6 +8,7 @@ import SwiftUI
 
 struct ProductsListView: View {
     @ObservedObject var cartManager: CartManager
+    @Binding var finishedPurchase: Bool
     
     var body: some View {
         ScrollView {
@@ -31,7 +32,8 @@ struct ProductsListView: View {
                 }
                 
                 CustomButton(title: "Finalizar Compra") {
-                    // Lógica para finalizar compra
+                    cartManager.cleanCart()
+                    finishedPurchase = true
                 }
             }
             .padding()

@@ -46,6 +46,10 @@ class CartManager: ObservableObject {
         let total = cartItems.reduce(0) { $0 + $1.price }
         return String(format: "%.2f", total)
     }
+    
+    func cleanCart() {
+        cartItems.removeAll()
+    }
 
 }
 

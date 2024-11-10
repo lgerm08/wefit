@@ -10,25 +10,38 @@ import SwiftUI
 struct CustomAppBarView: View {
     @StateObject var cartManager = CartManager()
     @State private var selectedTab: Int = 1
+    @State var finishedPurchase: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
             HeaderView()
             TabView(selection: $selectedTab) {
                 
-                CartView(cartManager: cartManager, selectedTab: $selectedTab)
-                    .tabItem {
-                        Image("shopping_cart")
-                        Text("Carrinho" + (cartManager.itemCount <= 0 ? "" : " (\(cartManager.itemCount))"))
-                            .foregroundColor(Color.secondaryColor)
-                            .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
-                    }
-                    .tag(0)
+                if !finishedPurchase {
+                    CartView(cartManager: cartManager, selectedTab: $selectedTab, finishedPurchase: $finishedPurchase)
+                        .tabItem {
+                            Image(AppStrings.Images.shoppingCart)
+                            Text(AppStrings.cart + (cartManager.itemCount <= 0 ? "" : " (\(cartManager.itemCount))"))
+                                .foregroundColor(Color.secondaryColor)
+                                .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
+                        }
+                        .tag(0)
+                } else {
+                    OrderConfirmationView(selectedTab: $selectedTab, finishedPurchased: $finishedPurchase)
+                        .tabItem {
+                            Image(AppStrings.Images.shoppingCart)
+                            Text(AppStrings.cart)
+                                .foregroundColor(Color.secondaryColor)
+                                .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
+                        }
+                        .tag(0)
+                }
+                
                 
                 HomeView(cartManager: cartManager)
                     .tabItem {
-                        Image("home")
-                        Text("Home")
+                        Image(AppStrings.Images.home)
+                        Text(AppStrings.home)
                             .foregroundColor(Color.secondaryColor)
                             .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
                     }
@@ -36,8 +49,8 @@ struct CustomAppBarView: View {
                 
                 ProfileView()
                     .tabItem {
-                        Image("user")
-                        Text("Perfil")
+                        Image(AppStrings.Images.user)
+                        Text(AppStrings.profile)
                             .foregroundColor(Color.secondaryColor)
                             .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
                     }

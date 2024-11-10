@@ -9,6 +9,7 @@ import SwiftUI
 struct CartView: View {
     @ObservedObject var cartManager: CartManager
     @Binding var selectedTab: Int
+    @Binding var finishedPurchase: Bool
     
     var body: some View {
         ZStack {
@@ -22,7 +23,7 @@ struct CartView: View {
                 if cartManager.cartItems.isEmpty {
                     EmptyStateCartView(selectedTab: $selectedTab)
                 } else {
-                    ProductsListView(cartManager: cartManager)
+                    ProductsListView(cartManager: cartManager, finishedPurchase: $finishedPurchase)
                 }
             }
             .padding()
