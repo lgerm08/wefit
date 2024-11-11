@@ -17,14 +17,16 @@ struct SplashScreenView: View {
                 .edgesIgnoringSafeArea(.all)
             
             // Conteúdo principal
-            VStack {
-                Text("Bem vindo a")
+            VStack(alignment: .leading) {
+                Text(AppStrings.welcomeMessage)
                     .font(.custom(AppFonts.regular, size: FontSizes.subtitle))
                     .foregroundColor(.white)
+                    .bold()
                 
-                Text("WeMovies")
+                Text(AppStrings.appName)
                     .font(.custom(AppFonts.regular, size: FontSizes.splashScreenTitle))
                     .foregroundColor(.white)
+                    .bold()
             }
             
             

@@ -8,13 +8,36 @@ import Foundation
 
 struct AppStrings {
     
-    // MARK: - Header
-    static let appName = "Meu App"
+    static let appName = "WeMovies"
+    
+    // MARK: - SplashScreen
+    static let welcomeMessage = "Bem vindo a"
     
     // MARK: - AppBar
     static let cart = "Carrinho"
     static let home = "Home"
     static let profile = "Perfil"
+    
+    // MARK: - Home
+    static let emptyProductsMessage = "Parece que não há nada por aqui :("
+    static let reloadButton = "Recarregar página"
+    static let bestSellers = "Mais Vendidos"
+    static let mostSuccessful = "Maiores sucessos do WeMovie"
+    
+    // MARK: - Cart
+    static let shoppingCart = "Carrinho de compras"
+    static let emptyCartMessage = "Parece que não há nada por aqui :("
+    static let backToHomeButton = "Voltar à Home"
+    static let totalPrice = "TOTAL"
+    static let checkoutButton = "Finalizar compra"
+    static let addDate = "Adicionado em "
+    static let partialPrice = "Subtotal"
+    
+    // MARK: - Completed Order
+    static let successfulPurchase = "Compra realizada com sucesso!"
+    static let backToHomeOrderButton = "Voltar à Home"
+    static let boughtAt = "Compra realizada em "
+    static let at = "às "
     
     // MARK: - Images
     struct Images {
@@ -22,6 +45,11 @@ struct AppStrings {
         static let home = "home"
         static let user = "user"
         static let finishedPurchase = "fineshed_purchase"
+        static let emptyCartImage = "empty_state_cart_image"
+        static let removeIcon = "remove_icon"
+        static let addIcon = "add_icon"
+        static let emptyStateHome = "empty_state_home_image"
+        static let trashIcon = "trash_icon"
     }
 }
 

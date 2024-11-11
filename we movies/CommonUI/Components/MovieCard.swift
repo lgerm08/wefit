@@ -25,7 +25,7 @@ struct MovieCard: View {
 
             Button(action: {
                 if cartManager.isInCart(movie: movie) {
-                    cartManager.removeAllOcurrencesFromCart(movie: movie)
+                    cartManager.removeAllOccurrencesFromCart(movie: movie)
                 } else {
                     cartManager.addToCart(movie: movie)
                 }

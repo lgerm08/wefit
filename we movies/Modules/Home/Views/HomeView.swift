@@ -25,12 +25,12 @@ struct HomeView: View {
             case .success(let movies):
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading) {
-                        Text("Mais Vendidos")
+                        Text(AppStrings.bestSellers)
                             .foregroundColor(Color.secondaryColor)
                             .font(.custom(AppFonts.regular, size: FontSizes.subtitle))
                             .fontWeight(.bold)
                         
-                        Text("Maiores sucessos do WeMovie")
+                        Text(AppStrings.mostSuccessful)
                             .foregroundColor(Color.secondaryColor)
                             .font(.custom(AppFonts.regular, size: FontSizes.smallText))
                             .fontWeight(FontWeights.bold)
@@ -39,11 +39,9 @@ struct HomeView: View {
                             MovieCard(movie: movie, cartManager: viewModel.cartManager)
                         }
                     }
-                    .padding((24.0/360)*UIScreen.main.bounds.width)
                 }
             }
         }
-        .navigationTitle("Home")
     }
     
     func reloadMoviesList() {

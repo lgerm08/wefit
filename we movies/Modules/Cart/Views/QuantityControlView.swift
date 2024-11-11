@@ -18,7 +18,7 @@ struct QuantityControlView: View {
                     cartManager.removeOneOccurrenceFromCart(movie: movie)
                 }
             }) {
-                Image("remove_icon")
+                Image(AppStrings.Images.removeIcon)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24, height: 24)
@@ -40,7 +40,7 @@ struct QuantityControlView: View {
             Button(action: {
                 cartManager.addToCart(movie: movie)
             }) {
-                Image("add_icon")
+                Image(AppStrings.Images.addIcon)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24, height: 24)

@@ -22,16 +22,15 @@ class HomeViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     func fetchMovies() {
-        self.state = .loading
-        let endpoint = "https://wefit-movies.vercel.app/api/movies" // Insira seu endpoint real aqui
+        self.state = .loading 
         
-        APIClient.shared.fetchData(endpoint: endpoint) { (result: Result<Products, Error>) in
+        APIClient.shared.fetchData(endpoint: AppEndpoints.getMovies) { (result: Result<Products, Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
                     self.state = response.products.isEmpty ? .empty : .success(response.products)
                 case .failure(let error):
-                    print("Erro ao buscar filmes: \(error)")
+                    print(error)
                     self.state = .empty
                 }
             }

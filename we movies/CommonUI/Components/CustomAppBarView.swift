@@ -20,19 +20,13 @@ struct CustomAppBarView: View {
                 if !finishedPurchase {
                     CartView(cartManager: cartManager, selectedTab: $selectedTab, finishedPurchase: $finishedPurchase)
                         .tabItem {
-                            Image(AppStrings.Images.shoppingCart)
-                            Text(AppStrings.cart + (cartManager.itemCount <= 0 ? "" : " (\(cartManager.itemCount))"))
-                                .foregroundColor(Color.secondaryColor)
-                                .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
+                            CustomTabItem(selectedTab: $selectedTab, tabIndex: 0, text: AppStrings.cart + (cartManager.itemCount <= 0 ? "" : " (\(cartManager.itemCount))"), imageName: AppStrings.Images.shoppingCart)
                         }
                         .tag(0)
                 } else {
                     OrderConfirmationView(selectedTab: $selectedTab, finishedPurchased: $finishedPurchase)
                         .tabItem {
-                            Image(AppStrings.Images.shoppingCart)
-                            Text(AppStrings.cart)
-                                .foregroundColor(Color.secondaryColor)
-                                .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
+                            CustomTabItem(selectedTab: $selectedTab, tabIndex: 0, text: AppStrings.cart + (cartManager.itemCount <= 0 ? "" : " (\(cartManager.itemCount))"), imageName: AppStrings.Images.shoppingCart)
                         }
                         .tag(0)
                 }
@@ -40,30 +34,21 @@ struct CustomAppBarView: View {
                 
                 HomeView(cartManager: cartManager)
                     .tabItem {
-                        Image(AppStrings.Images.home)
-                        Text(AppStrings.home)
-                            .foregroundColor(Color.secondaryColor)
-                            .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
+                        CustomTabItem(selectedTab: $selectedTab, tabIndex: 1, text: AppStrings.home, imageName: AppStrings.Images.home)
                     }
                     .tag(1)
                 
                 ProfileView()
                     .tabItem {
-                        Image(AppStrings.Images.user)
-                        Text(AppStrings.profile)
-                            .foregroundColor(Color.secondaryColor)
-                            .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
+                        CustomTabItem(selectedTab: $selectedTab, tabIndex: 2, text: AppStrings.profile, imageName: AppStrings.Images.user)
                     }
                     .tag(2)
             }
+            .tint(Color.secondaryColor)
             .onAppear() {
                 let appearance = UITabBarAppearance()
                 appearance.configureWithOpaqueBackground()
                 appearance.backgroundColor = UIColor(Color.primaryColor)
-                appearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.secondaryColor)
-                appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor:  UIColor(Color.secondaryColor)]
-                appearance.stackedLayoutAppearance.normal.iconColor = UIColor(Color.secondaryColor)
-                appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor:  UIColor(Color.secondaryColor)]
                 UITabBar.appearance().standardAppearance = appearance
                 UITabBar.appearance().scrollEdgeAppearance = appearance
             }

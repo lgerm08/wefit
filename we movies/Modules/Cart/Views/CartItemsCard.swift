@@ -28,15 +28,22 @@ struct CartItemsCard: View {
                     Text("$\(item.price, specifier: "%.2f")")
                         .foregroundColor(Color.primaryColor)
                         .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
-                    Text("Adicionado em...")
+                    Text(AppStrings.addDate)
+                            .foregroundColor(Color.unfocusedGray)
+                            .font(.custom(AppFonts.regular, size: FontSizes.smallText))
+                            .fontWeight(.light)
+                         + Text(cartManager.getLastAddedDate(movie: item))
+                            .foregroundColor(Color.unfocusedGray)
+                            .fontWeight(.bold)
+                            .font(.custom(AppFonts.regular, size: FontSizes.smallText))
                 }
                 
                 Spacer()
                 
                 Button(action: {
-                    cartManager.removeAllOcurrencesFromCart(movie: item)
+                    cartManager.removeAllOccurrencesFromCart(movie: item)
                 }) {
-                    Image("trash_icon")
+                    Image(AppStrings.Images.trashIcon)
                 }
             }
             
@@ -44,7 +51,7 @@ struct CartItemsCard: View {
                 QuantityControlView(cartManager: cartManager, movie: item)
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text("Subtotal")
+                    Text(AppStrings.partialPrice)
                         .foregroundColor(Color.lightGray)
                         .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
                     Text("$\(item.price * Double(cartManager.cartItems.filter{ $0.id == item.id}.count), specifier: "%.2f")")

@@ -16,10 +16,22 @@ struct OrderConfirmationView: View {
         ZStack {
             Color.backgroundColor.ignoresSafeArea()
             VStack {
-                Text(viewModel.getTimeOfPurchase())
+                Text(AppStrings.boughtAt)
                     .font(.custom(AppFonts.regular, size: FontSizes.smallText))
                     .foregroundColor(Color.lightGray)
-                Text("Compra realizada com sucesso!")
+                + Text(viewModel.getDayOfPurchase())
+                    .font(.custom(AppFonts.regular, size: FontSizes.smallText))
+                    .foregroundColor(Color.lightGray)
+                    .fontWeight(.bold) // Usar .fontWeight(.bold) ao invés de .bold()
+                + Text(AppStrings.at)
+                    .font(.custom(AppFonts.regular, size: FontSizes.smallText))
+                    .foregroundColor(Color.lightGray)
+                + Text(viewModel.getTimeOfPurchase())
+                    .font(.custom(AppFonts.regular, size: FontSizes.smallText))
+                    .foregroundColor(Color.lightGray)
+                    .fontWeight(.bold) // Usar .fontWeight(.bold) ao invés de .bold()
+
+                Text(AppStrings.successfulPurchase)
                     .font(.custom(AppFonts.regular, size: FontSizes.subtitle))
                     .fontWeight(.bold)
                     .foregroundColor(Color.primaryColor)
@@ -27,9 +39,9 @@ struct OrderConfirmationView: View {
                 Image(AppStrings.Images.finishedPurchase)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: UIScreen.main.bounds.width*178.63/360, height: UIScreen.main.bounds.height*343/800) // Ajuste o tamanho da imagem conforme necessário
+                    .frame(width: UIScreen.main.bounds.width*178.63/360, height: UIScreen.main.bounds.height*343/800)
                 
-                CustomButton(title: "Voltar à Home", action: goBackToHome)
+                CustomButton(title: AppStrings.backToHomeOrderButton, action: goBackToHome)
             }
             .frame(width: UIScreen.main.bounds.width * 0.87,
                    height: UIScreen.main.bounds.height * 0.73)
@@ -39,7 +51,6 @@ struct OrderConfirmationView: View {
         }
     }
     
-    // Navegar de volta à Home
     func goBackToHome() {
         finishedPurchased = false
         selectedTab = 1

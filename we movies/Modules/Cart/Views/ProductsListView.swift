@@ -19,28 +19,27 @@ struct ProductsListView: View {
                 }
                 
                 HStack {
-                    Text("TOTAL")
+                    Text(AppStrings.totalPrice)
                         .foregroundColor(Color.lightGrayColor)
                         .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
                         .fontWeight(.bold)
                     Spacer()
-                    var total = cartManager.totalPrice()
-                    Text("R$ \(total)")
+                    Text("R$ \(cartManager.totalPrice())")
                         .foregroundColor(Color.primaryColor)
                         .font(.custom(AppFonts.regular, size: FontSizes.headerTitle))
                         .fontWeight(.bold)
                 }
                 
-                CustomButton(title: "Finalizar Compra") {
+                CustomButton(title: AppStrings.checkoutButton) {
                     cartManager.cleanCart()
                     finishedPurchase = true
                 }
             }
             .padding()
-            .background(Color.white)  // Cor de fundo branca
+            .background(Color.white)
             .cornerRadius(4)
             .shadow(radius: 5)
         }
-        .background(Color.backgroundColor)  // Garante que o fundo da ScrollView seja branco
+        .background(Color.backgroundColor)
     }
 }

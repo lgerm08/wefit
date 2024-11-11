@@ -8,11 +8,12 @@
 import SwiftUI
 
 extension Color {
-    static let primaryColor = Color("primaryColor")        // Exemplo de cor primária
-    static let secondaryColor = Color("secondaryColor")    // Exemplo de cor secundária
-    static let backgroundColor = Color("backgroundColor")  // Cor de fundo da aplicação
-    static let accentColor = Color("accentColor")          // Cor de destaque
-    static let cardBackgroundColor = Color("cardBackground")   // Cor de fundo de um card
+    static let primaryColor = Color("primaryColor")
+    static let secondaryColor = Color("secondaryColor")
+    static let backgroundColor = Color("backgroundColor")
+    static let accentColor = Color("accentColor")
+    static let cardBackgroundColor = Color("cardBackground")
     static let circleGradientColor = Color("circleGradient")
     static let lightGrayColor = Color("lightGray")
+    static let unfocusedGrayColor = Color("unfocusedGray")
 }

@@ -9,9 +9,10 @@ import Foundation
 
 class APIClient {
     static let shared = APIClient()
+    let baseUrl = "https://wefit-movies.vercel.app/api"
     
     func fetchData<T: Decodable>(endpoint: String, completion: @escaping (Result<T, Error>) -> Void) {
-        guard let url = URL(string: endpoint) else { return }
+        guard let url = URL(string: baseUrl + endpoint) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {

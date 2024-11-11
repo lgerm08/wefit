@@ -15,7 +15,7 @@ struct CartView: View {
         ZStack {
             Color.backgroundColor.ignoresSafeArea()
             VStack(alignment: .leading, spacing: 16) {
-                Text("Carrinho de compras")
+                Text(AppStrings.shoppingCart)
                     .font(.custom(AppFonts.regular, size: FontSizes.headerTitle))
                     .fontWeight(FontWeights.heavy)
                     .foregroundColor(Color.secondaryColor)
@@ -28,7 +28,6 @@ struct CartView: View {
             }
             .padding()
         }
-        .navigationTitle("Carrinho")
     }
 }
 

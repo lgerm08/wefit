@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoadingHomeView: View {
     
-    
     var body: some View {
         ProgressView()
             .progressViewStyle(.circular)

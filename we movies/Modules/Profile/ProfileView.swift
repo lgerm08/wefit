@@ -9,6 +9,6 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-            Text("Perfil do Usuário") // Placeholder para a aba de Perfil
+            Text("Perfil do Usuário") 
     }
 }

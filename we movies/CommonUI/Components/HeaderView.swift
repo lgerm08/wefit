@@ -9,9 +9,9 @@ import SwiftUI
 struct HeaderView: View {
     var body: some View {
         GeometryReader { geometry in
-            let height = geometry.size.width * (73 / 360)  // Calcula a altura baseada na largura da tela
+            let height = geometry.size.width * (73 / 360)  
             VStack {
-                Text("WeMovies")
+                Text(AppStrings.appName)
                     .foregroundColor(.white)
                     .font(.custom(AppFonts.regular, size: FontSizes.headerTitle))
                     .frame(width: geometry.size.width, height: height)
@@ -19,7 +19,7 @@ struct HeaderView: View {
                     .edgesIgnoringSafeArea(.top)
             }
         }
-        .frame(height: UIScreen.main.bounds.width * (73 / 360))  // Define altura do componente
+        .frame(height: UIScreen.main.bounds.width * (73 / 360))
     }
 }
 

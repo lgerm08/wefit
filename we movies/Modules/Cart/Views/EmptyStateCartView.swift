@@ -11,17 +11,17 @@ struct EmptyStateCartView: View {
     
     var body: some View {
         VStack {
-            Text("Parece que não há nada por aqui :(")
+            Text(AppStrings.emptyCartMessage)
                 .font(.custom(AppFonts.regular, size: FontSizes.subtitle))
                 .fontWeight(.bold)
                 .foregroundColor(Color.primaryColor)
             
-            Image("empty_state_cart_image")
+            Image(AppStrings.Images.emptyCartImage)
                 .resizable()
                 .scaledToFit()
-                .frame(width: UIScreen.main.bounds.width*178.63/360, height: UIScreen.main.bounds.height*343/800) // Ajuste o tamanho da imagem conforme necessário
+                .frame(width: UIScreen.main.bounds.width*178.63/360, height: UIScreen.main.bounds.height*343/800)
             
-            CustomButton(title: "Voltar à Home", action: goBackToHome)
+            CustomButton(title: AppStrings.backToHomeButton, action: goBackToHome)
         }
         .frame(width: UIScreen.main.bounds.width * 0.87,
                height: UIScreen.main.bounds.height * 0.73)

@@ -13,23 +13,24 @@ struct EmptyStateHomeView: View {
     
     var body: some View {
         VStack {
-            Text("Parece que não há nada por aqui :(")
+            Text(AppStrings.emptyProductsMessage)
                 .font(.custom(AppFonts.regular, size: FontSizes.subtitle))
                 .fontWeight(.bold)
                 .foregroundColor(Color.primaryColor)
             
-            Image("empty_state_home_image")
+            Image(AppStrings.Images.emptyStateHome)
                 .resizable()
                 .scaledToFit()
-                .frame(width: UIScreen.main.bounds.width*178.63/360, height: UIScreen.main.bounds.height*343/800) // Ajuste o tamanho da imagem conforme necessário
+                .frame(width: UIScreen.main.bounds.width*178.63/360, height: UIScreen.main.bounds.height*343/800)
             
-            CustomButton(title: "Recarregar página", action: action)
+            CustomButton(title: AppStrings.reloadButton, action: action)
         }
         .frame(width: UIScreen.main.bounds.width * 0.87,
                height: UIScreen.main.bounds.height * 0.73)
         .background(Color.white)
         .cornerRadius(20)
         .shadow(radius: 10)
+        .padding(Spacing.padding)
     }
     
 }
