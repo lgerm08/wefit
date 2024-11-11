@@ -8,5 +8,5 @@
 import SwiftUI
 
 struct AppFonts {
-    static let regular = "Open Sans"
+    static let regular = "OpenSans-Bold"
 }

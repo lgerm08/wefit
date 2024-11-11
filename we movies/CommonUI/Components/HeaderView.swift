@@ -8,18 +8,14 @@ import SwiftUI
 
 struct HeaderView: View {
     var body: some View {
-        GeometryReader { geometry in
-            let height = geometry.size.width * (73 / 360)  
-            VStack {
-                Text(AppStrings.appName)
-                    .foregroundColor(.white)
-                    .font(.custom(AppFonts.regular, size: FontSizes.headerTitle))
-                    .frame(width: geometry.size.width, height: height)
-                    .background(Color.primaryColor)
-                    .edgesIgnoringSafeArea(.top)
-            }
+        VStack {
+            Text(AppStrings.appName)
+                .foregroundColor(.white)
+                .font(.custom(AppFonts.regular, size: FontSizes.headerTitle))
         }
-        .frame(height: UIScreen.main.bounds.width * (73 / 360))
+        .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height * (73 / 800))
+        .background(Color.primaryColor)
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * (73 / 800))
     }
 }
 

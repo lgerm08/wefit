@@ -22,7 +22,7 @@ class HomeViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     func fetchMovies() {
-        self.state = .loading 
+        self.state = .loading
         
         APIClient.shared.fetchData(endpoint: AppEndpoints.getMovies) { (result: Result<Products, Error>) in
             DispatchQueue.main.async {

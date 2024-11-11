@@ -31,7 +31,8 @@ struct QuantityControlView: View {
                 .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
                 .frame(width: 30, alignment: .center)
                 .padding(4)
-                .background(Color.white)
+                .background(Color.secondaryColor)
+                .foregroundColor(Color.primaryColor)
                 .overlay(
                     RoundedRectangle(cornerRadius: 4)
                         .stroke(Color.lightGray, lineWidth: 1)

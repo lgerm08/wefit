@@ -10,24 +10,29 @@ struct EmptyStateCartView: View {
     @Binding var selectedTab: Int
     
     var body: some View {
-        VStack {
-            Text(AppStrings.emptyCartMessage)
-                .font(.custom(AppFonts.regular, size: FontSizes.subtitle))
-                .fontWeight(.bold)
-                .foregroundColor(Color.primaryColor)
-            
-            Image(AppStrings.Images.emptyCartImage)
-                .resizable()
-                .scaledToFit()
-                .frame(width: UIScreen.main.bounds.width*178.63/360, height: UIScreen.main.bounds.height*343/800)
-            
-            CustomButton(title: AppStrings.backToHomeButton, action: goBackToHome)
+        ScrollView(showsIndicators: false) {
+            VStack {
+                Text(AppStrings.emptyCartMessage)
+                    .font(.custom(AppFonts.regular, size: FontSizes.subtitle))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.primaryColor)
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+                
+                Image(AppStrings.Images.emptyCartImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: UIScreen.main.bounds.width*178.63/360, height: UIScreen.main.bounds.height*343/800)
+                
+                CustomButton(title: AppStrings.backToHomeButton, action: goBackToHome)
+            }
+            .frame(width: UIScreen.main.bounds.width * 0.87,
+                   height: UIScreen.main.bounds.height * 0.73)
+            .background(Color.white)
+            .cornerRadius(20)
+            .shadow(radius: 10)
+            .padding(16)
         }
-        .frame(width: UIScreen.main.bounds.width * 0.87,
-               height: UIScreen.main.bounds.height * 0.73)
-        .background(Color.white)
-        .cornerRadius(20)
-        .shadow(radius: 10)
     }
     
     // Navegar de volta à Home
