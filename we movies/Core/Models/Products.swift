@@ -2,7 +2,7 @@
 //  Products.swift
 //  we movies
 //
-//  Created by Rafael Teixeira Martins on 09/11/24.
+//  Created by Lucas Germano on 09/11/24.
 //
 
 import Foundation

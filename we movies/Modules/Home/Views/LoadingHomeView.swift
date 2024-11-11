@@ -2,7 +2,7 @@
 //  LoadingHomeView.swift
 //  we movies
 //
-//  Created by Rafael Teixeira Martins on 10/11/24.
+//  Created by Lucas Germano on 10/11/24.
 //
 
 import SwiftUI

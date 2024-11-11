@@ -2,7 +2,7 @@
 //  CustomAppBarView.swift
 //  we movies
 //
-//  Created by Rafael Teixeira Martins on 09/11/24.
+//  Created by Lucas Germano on 09/11/24.
 //
 
 import SwiftUI
@@ -38,7 +38,7 @@ struct CustomAppBarView: View {
                     }
                     .tag(1)
                 
-                ProfileView()
+                ProfileView(selectedTab: $selectedTab)
                     .tabItem {
                         CustomTabItem(selectedTab: $selectedTab, tabIndex: 2, text: AppStrings.profile, imageName: AppStrings.Images.user)
                     }

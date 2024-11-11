@@ -2,7 +2,7 @@
 //  CartItemsCard.swift
 //  we movies
 //
-//  Created by Rafael Teixeira Martins on 10/11/24.
+//  Created by Lucas Germano on 10/11/24.
 //
 import SwiftUI
 
@@ -54,7 +54,7 @@ struct CartItemsCard: View {
                     Text(AppStrings.partialPrice)
                         .foregroundColor(Color.lightGray)
                         .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))
-                    Text("$\(item.price * Double(cartManager.cartItems.filter{ $0.id == item.id}.count), specifier: "%.2f")")
+                    Text("R$ \(item.price * Double(cartManager.cartItems.filter{ $0.id == item.id}.count), specifier: "%.2f")")
                         .foregroundColor(Color.primaryColor)
                         .fontWeight(FontWeights.bold)
                         .font(.custom(AppFonts.regular, size: FontSizes.navBarItem))

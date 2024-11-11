@@ -2,7 +2,7 @@
 //  AppStrings.swift
 //  we movies
 //
-//  Created by Rafael Teixeira Martins on 10/11/24.
+//  Created by Lucas Germano on 10/11/24.
 //
 import Foundation
 
@@ -23,6 +23,7 @@ struct AppStrings {
     static let reloadButton = "Recarregar página"
     static let bestSellers = "Mais Vendidos"
     static let mostSuccessful = "Maiores sucessos do WeMovie"
+    static let cartButton = "ADICIONAR AO CARRINHO"
     
     // MARK: - Cart
     static let shoppingCart = "Carrinho de compras"
@@ -39,6 +40,9 @@ struct AppStrings {
     static let boughtAt = "Compra realizada em "
     static let at = "às "
     
+    // MARK: - Completed Order
+    static let profileMessage = "Novas funcionalidades em breve!"
+    
     // MARK: - Images
     struct Images {
         static let shoppingCart = "shopping_cart"
@@ -50,6 +54,7 @@ struct AppStrings {
         static let addIcon = "add_icon"
         static let emptyStateHome = "empty_state_home_image"
         static let trashIcon = "trash_icon"
+        static let addCart = "add_cart"
     }
 }
 

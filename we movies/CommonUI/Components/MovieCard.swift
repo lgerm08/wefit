@@ -23,20 +23,7 @@ struct MovieCard: View {
                 .font(.custom(AppFonts.regular, size: FontSizes.price))
                 .foregroundColor(Color.primaryColor)
 
-            Button(action: {
-                if cartManager.isInCart(movie: movie) {
-                    cartManager.removeAllOccurrencesFromCart(movie: movie)
-                } else {
-                    cartManager.addToCart(movie: movie)
-                }
-            }) {
-                Text(cartManager.isInCart(movie: movie) ? "Adicionado" : "Adicionar ao Carrinho")
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(cartManager.isInCart(movie: movie) ? Color.green : Color.accent)
-                    .cornerRadius(4)
-            }
+            CartButton(cartManager: cartManager, movie: movie)
         }
         .padding(16)
         .background(Color.secondaryColor)
